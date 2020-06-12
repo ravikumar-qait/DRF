@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        
+    {% if test_list %}
+    <ol>
+        <h3>User Info:</h3>
+        {% for person in test_list|slice:":1" %}
+        <ul>
+            <li>Id: {{person.emp_id}}</li>
+            <li>Name: {{person.emp.name}}</li>
+            <li>Email: {{person.emp.email}}</li>
+          </ul>
+
+        {% endfor %}
+    </ol>
+    <ol><h3>Present Days:</h3>
+        
+        <ol>
+     
+      {% for person in test_list %}
+          <li>Date: {{person.day}}</li>
+          
+      {% endfor %}
+
+        </ol>
+    </ol>
+    {% else %}
+     <h3>No Record for this month!</h3>
+
+    {% endif %}
+    
+    </div>
+    
+</body>
+</html>
